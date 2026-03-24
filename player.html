@@ -11,10 +11,46 @@
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
+            min-height: 100vh;
         }
         .container { max-width: 600px; margin: 0 auto; }
         h1 { font-size: 1.8rem; margin-bottom: 10px; }
         p { color: #aaa; margin-bottom: 30px; }
+        
+        /* 开始按钮 */
+        .start-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 46, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .start-btn {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #000;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
+        }
+        
         .player { 
             background: rgba(255,255,255,0.1); 
             padding: 20px; 
@@ -44,6 +80,13 @@
     </style>
 </head>
 <body>
+    <!-- 开始播放的遮罩层 -->
+    <div class="start-overlay" id="startOverlay">
+        <button class="start-btn" onclick="startPlaying()">
+            ⭐ 点击开始听故事 ⭐
+        </button>
+    </div>
+
     <div class="container">
         <h1>⭐ 小星星悠悠的月光之旅 ⭐</h1>
         <p>睡前故事 · 女声朗读</p>
@@ -51,7 +94,7 @@
         
         <div class="player">
             <div class="chapter-title" id="title">第一章：最不起眼的星星</div>
-            <audio id="player" controls autoplay>
+            <audio id="player" controls>
                 <source id="audioSource" src="https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-1.mp3" type="audio/mpeg">
                 您的浏览器不支持音频播放
             </audio>
@@ -105,7 +148,6 @@
             document.getElementById('audioSource').src = ch.url;
             document.getElementById('player').load();
             
-            // 如果自动播放开启，就播放
             if (autoPlayEnabled) {
                 document.getElementById('player').play().catch(e => console.log('Auto-play blocked'));
             }
@@ -125,29 +167,37 @@
             if (currentIndex < chapters.length - 1) loadChapter(currentIndex + 1);
         }
 
+        // 点击开始按钮
+        function startPlaying() {
+            // 隐藏遮罩
+            document.getElementById('startOverlay').style.display = 'none';
+            // 开始播放第一章
+            loadChapter(0);
+        }
+
         // 初始化章节列表
         const list = document.getElementById('chapterList');
         chapters.forEach((ch, i) => {
             const btn = document.createElement('button');
             btn.className = 'chapter-btn';
             btn.textContent = '第' + (i+1) + '章';
-            btn.onclick = () => loadChapter(i);
+            btn.onclick = () => {
+                // 如果还没开始，先开始播放
+                if (document.getElementById('startOverlay').style.display !== 'none') {
+                    startPlaying();
+                }
+                loadChapter(i);
+            };
             list.appendChild(btn);
         });
 
-        // 监听音频播放结束，自动播放下一章
+        // 监听音频播放结束
         document.getElementById('player').addEventListener('ended', function() {
             if (autoPlayEnabled && currentIndex < chapters.length - 1) {
-                // 延迟1秒后自动播放下一章
                 setTimeout(() => {
                     loadChapter(currentIndex + 1);
                 }, 1000);
             }
-        });
-
-        // 页面加载时自动播放第一章
-        window.addEventListener('load', function() {
-            loadChapter(0);
         });
     </script>
 </body>
