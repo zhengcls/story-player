@@ -8,56 +8,66 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Microsoft YaHei', Arial, sans-serif; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); min-height: 100vh; color: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .header { text-align: center; margin-bottom: 25px; padding: 20px 0; border-bottom: 1px solid rgba(0,212,255,0.2); }
-        .header h1 { font-size: 28px; color: #00d4ff; text-shadow: 0 0 20px rgba(0,212,255,0.5); }
-        .header .date { color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px; }
-        .video-box { background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        
+        /* 标题区 */
+        .hero { text-align: center; margin-bottom: 20px; }
+        .hero h1 { font-size: 36px; color: #00d4ff; text-shadow: 0 0 30px rgba(0,212,255,0.5); margin-bottom: 10px; }
+        .hero .date { color: rgba(255,255,255,0.5); font-size: 14px; }
+        
+        /* 视频区 */
+        .video-box { background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.5); }
         video { width: 100%; display: block; }
-        .play-btn { width: 100%; padding: 20px; background: linear-gradient(135deg, #00d4ff, #0099cc); border: none; border-radius: 12px; font-size: 18px; font-weight: bold; color: #000; cursor: pointer; margin-bottom: 25px; }
-        .play-btn:hover { transform: translateY(-2px); }
-        .stats { display: flex; gap: 15px; margin-bottom: 25px; }
-        .stat-item { flex: 1; background: rgba(0,212,255,0.1); border-radius: 8px; padding: 15px; text-align: center; }
-        .stat-value { font-size: 24px; color: #00d4ff; font-weight: bold; }
-        .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 5px; }
+        
+        /* 统计 */
+        .stats { display: flex; gap: 12px; margin-bottom: 25px; }
+        .stat-item { flex: 1; background: rgba(0,212,255,0.1); border-radius: 10px; padding: 12px; text-align: center; }
+        .stat-value { font-size: 20px; color: #00d4ff; font-weight: bold; }
+        .stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+        
+        /* 新闻列表 */
         .news-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; }
         .section-title { color: #00d4ff; font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,212,255,0.2); }
-        .news-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .news-item:last-child { border-bottom: none; }
-        .news-item h3 { color: #fff; font-size: 15px; margin-bottom: 8px; }
-        .news-item p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; }
+        .news-item h3 { color: #fff; font-size: 14px; margin-bottom: 6px; }
+        .news-item p { color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-right: 6px; }
         .tag-iran { background: #e74c3c; }
         .tag-israel { background: #3498db; }
         .tag-lebanon { background: #27ae60; }
         .tag-yemen { background: #9b59b6; }
         .tag-syria { background: #f39c12; }
         .tag-middleeast { background: #1abc9c; }
-        .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 12px; }
+        
+        .footer { text-align: center; margin-top: 30px; padding-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        
+        <!-- 标题 -->
+        <div class="hero">
             <h1>每日全球军事动态</h1>
             <div class="date">2026-03-25</div>
         </div>
         
-        <div class="stats">
-            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">新闻条数</div></div>
-            <div class="stat-item"><div class="stat-value">完全同步</div><div class="stat-label">视频与语音</div></div>
-            <div class="stat-item"><div class="stat-value">字幕显示</div><div class="stat-label">中文叠加</div></div>
-        </div>
-        
-        <button class="play-btn" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'});document.getElementById('video').play();">点击播放视频</button>
-        
+        <!-- 视频（标题正下方） -->
         <div class="video-box">
             <video id="video" controls>
                 <source src="video.mp4" type="video/mp4">
             </video>
         </div>
         
+        <!-- 统计 -->
+        <div class="stats">
+            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">新闻条数</div></div>
+            <div class="stat-item"><div class="stat-value">完全同步</div><div class="stat-label">视频与语音</div></div>
+            <div class="stat-item"><div class="stat-value">字幕显示</div><div class="stat-label">中文叠加</div></div>
+        </div>
+        
+        <!-- 新闻列表 -->
         <div class="news-list">
-            <h2 class="section-title">今日要闻（点击视频观看详细内容）</h2>
+            <h2 class="section-title">今日要闻</h2>
             
             <div class="news-item">
                 <h3><span class="tag tag-iran">伊朗</span>第1条：伊朗革命卫队在霍尔木兹海峡举行大规模军事演习</h3>
