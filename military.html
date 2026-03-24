@@ -1,115 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日全球军事动态</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Microsoft YaHei', Arial, sans-serif; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); min-height: 100vh; color: #fff; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        
-        h1 { text-align: center; color: #00d4ff; font-size: 36px; margin-bottom: 20px; text-shadow: 0 0 30px rgba(0,212,255,0.5); }
-        
-        /* 视频容器加大1/3 */
-        .video-wrapper { 
-            background: #000; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            margin-bottom: 20px; 
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-            max-width: 960px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .video-wrapper video { 
-            width: 100%; 
-            max-height: 81vh;  /* 加大高度 */
-            display: block; 
-        }
-        
-        /* 统计 */
-        .stats { display: flex; gap: 15px; margin-bottom: 25px; justify-content: center; }
-        .stat-item { background: rgba(0,212,255,0.1); border-radius: 10px; padding: 15px 25px; text-align: center; }
-        .stat-value { color: #00d4ff; font-size: 22px; font-weight: bold; }
-        .stat-label { color: rgba(255,255,255,0.5); font-size: 12px; }
-        
-        /* 新闻列表 */
-        .news-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; }
-        .section-title { color: #00d4ff; font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,212,255,0.2); }
-        .news-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .news-item:last-child { border-bottom: none; }
-        .news-item h3 { color: #fff; font-size: 15px; margin-bottom: 6px; }
-        .news-item p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-right: 8px; }
-        .tag-iran { background: #e74c3c; }
-        .tag-israel { background: #3498db; }
-        .tag-lebanon { background: #27ae60; }
-        .tag-yemen { background: #9b59b6; }
-        .tag-syria { background: #f39c12; }
-        .tag-middleeast { background: #1abc9c; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>每日全球军事动态</h1>
-        
-        <div class="video-wrapper">
-            <video id="video" controls playsinline>
-                <source src="video.mp4" type="video/mp4">
-                您的浏览器不支持视频播放
-            </video>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">新闻条数</div></div>
-            <div class="stat-item"><div class="stat-value">81秒</div><div class="stat-label">总时长</div></div>
-            <div class="stat-item"><div class="stat-value">完全同步</div><div class="stat-label">视频=语音</div></div>
-        </div>
-        
-        <div class="news-list">
-            <h2 class="section-title">今日要闻（边看视频边阅读）</h2>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-iran">伊朗</span>1. 伊朗革命卫队在霍尔木兹海峡举行大规模军事演习</h3>
-                <p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军演。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-iran">伊朗</span>2. 伊朗展示新型高超音速导弹</h3>
-                <p>伊朗国防部展示新型高超音速导弹，可突破防空系统。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-israel">以色列</span>3. 以色列继续对加沙展开军事行动</h3>
-                <p>以色列国防军在加沙地带展开新一轮军事行动。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-yemen">也门</span>4. 胡塞武装宣布封锁红海航道</h3>
-                <p>也门胡塞武装宣布继续封锁红海航道。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-lebanon">黎巴嫩</span>5. 黎巴嫩真主党与以色列边境冲突</h3>
-                <p>黎巴嫩真主党与以色列边境冲突升级，双方均有伤亡。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-middleeast">中东</span>6. 美军航母战斗群进入中东水域</h3>
-                <p>美国海军航母战斗群已进入波斯湾水域。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-syria">叙利亚</span>7. 叙利亚政府军收复北部城镇</h3>
-                <p>叙利亚政府军在俄空军支援下收复北部城镇。</p>
-            </div>
-            
-            <div class="news-item">
-                <h3><span class="tag tag-middleeast">中东</span>8. 沙特与伊朗关系持续改善</h3>
-                <p>沙特与伊朗外交关系回暖，加强合作与对话。</p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<html><head><meta charset="UTF-8"><title>每日全球军事动态</title>
+<style>
+body{font-family:'Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0a0a1a,#1a1a3a);color:#fff;padding:20px}
+.c{max-width:1200px;margin:0 auto}
+h1{text-align:center;color:#00d4ff;font-size:36px;margin-bottom:20px}
+.v{background:#000;border-radius:16px;overflow:hidden;margin-bottom:20px}
+video{width:100%;max-height:85vh}
+.s{display:flex;gap:15px;margin-bottom:20px;justify-content:center}
+.i{background:rgba(0,212,255,0.1);padding:15px 25px;border-radius:10px;text-align:center}
+.v2{color:#00d4ff;font-size:24px;font-weight:bold}
+.l{color:rgba(255,255,255,0.5);font-size:12px}
+.n{background:rgba(255,255,255,0.03);border-radius:12px;padding:20px}
+.t{color:#00d4ff;font-size:18px;margin-bottom:15px}
+.item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.item:last-child{border-bottom:none}
+.item h3{color:#fff;font-size:15px;margin-bottom:6px}
+.item p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.5}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;margin-right:8px}
+.tag-iran{background:#e74c3c}.tag-israel{background:#3498db}.tag-yemen{background:#9b59b6}.tag-lebanon{background:#27ae60}.tag-syria{background:#f39c12}.tag-middleeast{background:#1abc9c}
+</style></head>
+<body><div class="c">
+<h1>每日全球军事动态</h1>
+<div class="v"><video controls><source src="video.mp4" type="video/mp4"></video></div>
+<div class="s">
+<div class="i"><div class="v2">8</div><div class="l">新闻条数</div></div>
+<div class="i"><div class="v2">1080P</div><div class="l">高清画质</div></div>
+<div class="i"><div class="v2">81秒</div><div class="l">总时长</div></div>
+</div>
+<div class="n"><div class="t">今日要闻</div><div class="item"><h3><span class="tag tag-iran">iran</span>1. 伊朗革命卫队在霍尔木兹海峡举行大规模军事演习</h3><p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军演。</p></div><div class="item"><h3><span class="tag tag-iran">iran</span>2. 伊朗展示新型高超音速导弹</h3><p>伊朗国防部展示新型高超音速导弹，可突破防空系统。</p></div><div class="item"><h3><span class="tag tag-israel">israel</span>3. 以色列继续对加沙展开军事行动</h3><p>以色列国防军在加沙地带展开新一轮军事行动。</p></div><div class="item"><h3><span class="tag tag-yemen">yemen</span>4. 胡塞武装宣布封锁红海航道</h3><p>也门胡塞武装宣布继续封锁红海航道。</p></div><div class="item"><h3><span class="tag tag-lebanon">lebanon</span>5. 黎巴嫩真主党与以色列边境冲突</h3><p>黎巴嫩真主党与以色列边境冲突升级，双方均有伤亡。</p></div><div class="item"><h3><span class="tag tag-middleeast">middleeast</span>6. 美军航母战斗群进入中东水域</h3><p>美国海军航母战斗群已进入波斯湾水域。</p></div><div class="item"><h3><span class="tag tag-syria">syria</span>7. 叙利亚政府军收复北部城镇</h3><p>叙利亚政府军在俄空军支援下收复北部城镇。</p></div><div class="item"><h3><span class="tag tag-middleeast">middleeast</span>8. 沙特与伊朗关系持续改善</h3><p>沙特与伊朗外交关系回暖，加强合作与对话。</p></div></div>
+</div></body></html>
