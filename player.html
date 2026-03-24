@@ -32,16 +32,26 @@
         }
         button:hover { background: #ffed4e; }
         button:disabled { background: #666; cursor: not-allowed; }
+        .auto-badge { 
+            display: inline-block; 
+            background: #4CAF50; 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>⭐ 小星星悠悠的月光之旅 ⭐</h1>
         <p>睡前故事 · 女声朗读</p>
+        <div class="auto-badge" id="autoBadge">🔄 自动播放已开启</div>
         
         <div class="player">
             <div class="chapter-title" id="title">第一章：最不起眼的星星</div>
-            <audio id="player" controls>
+            <audio id="player" controls autoplay>
                 <source id="audioSource" src="https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-1.mp3" type="audio/mpeg">
                 您的浏览器不支持音频播放
             </audio>
@@ -53,24 +63,38 @@
             <button id="nextBtn" onclick="nextChapter()">下一章 ▶</button>
         </div>
         
-        <div id="chapterList" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;"></div>
+        <div style="margin-top: 15px;">
+            <label>
+                <input type="checkbox" id="autoPlayCheckbox" checked onchange="toggleAutoPlay()">
+                自动播放下一章
+            </label>
+        </div>
+        
+        <div id="chapterList" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;"></div>
     </div>
 
     <script>
+        let autoPlayEnabled = true;
+        let currentIndex = 0;
+        
         const chapters = [
             { title: "第一章：最不起眼的星星", text: "在很远很远的天空上，住着许多星星。有的星星又大又亮，有的会一闪一闪，还有的能组成美丽的星座图案。可是，有一颗小小的星星叫悠悠，她觉得自己是全天空最不起眼的那一颗。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-1.mp3" },
             { title: "第二章：月光仙子的邀请", text: "一天晚上，月光仙子驾着银色的马车飞过天空。她看到孤零零的悠悠，轻轻停下来问：小星星，你为什么不开心呀？悠悠低下头说：因为我不够亮，也不够大，没有人会注意到我。月光仙子温柔地笑了：每个星星都有属于自己的任务，你愿不愿意跟我去看看？", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-2.mp3" },
             { title: "第三章：沉睡的小花", text: "月光仙子带着悠悠飞到了一个大花园。花园里有一株小雏菊，白天已经枯萎了，花瓣都垂了下来。这株小花生病了，月光仙子说，如果你愿意在它身边照耀一整晚，也许它能好起来。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-3.mp3" },
-            { title: "第四章：悠悠的坚持", text: "悠悠决定留下来。她蹲在小雏菊旁边，用自己小小的光芒轻轻照耀着它。夜风吹来，悠悠有点冷，但她没有走。远处传来蛐蛐的叫声，好像在给她讲故事。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-4.mp3" },
-            { title: "第五章：小刺猬的到来", text: "半夜里，一只迷路的小刺猬走过来。它冻得缩成一团，泪汪汪地说：我找不到回家的路了。悠悠连忙把光芒照向小刺猬，让它感到温暖。别怕，悠悠轻声说，你先在这里暖和一下。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-5.mp3" },
+            { title: "第四章：悠悠的坚持", text: "悠悠决定留下来。她蹲在小雏菊旁边，用自己小小的光芒轻轻照耀着它。夜风吹来，悠悠有点冷，但她没有走。远处传来蛐蛐的叫声，好像在给她讲故事。悠悠一边听，一边努力让自己亮一点、再亮一点。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-4.mp3" },
+            { title: "第五章：小刺猬的到来", text: "半夜里，一只迷路的小刺猬走过来。它冻得缩成一团，泪汪汪地说：我找不到回家的路了。悠悠连忙把光芒照向小刺猬，让它感到温暖。别怕，悠悠轻声说，你先在这里暖和一下，明天天亮了，太阳会帮你找到回家的路。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-5.mp3" },
             { title: "第六章：奇迹出现了", text: "天快亮的时候，奇妙的事情发生了。小雏菊的花瓣慢慢抬了起来，竟然又恢复了活力，花瓣上还挂着几颗露珠，在悠悠的光里闪闪发光。小刺猬也醒了，它惊喜地叫道：哇，好美啊！", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-6.mp3" },
-            { title: "第七章：大家的好朋友", text: "从那以后，悠悠每天晚上都会来到花园。小雏菊为了迎接她，在月光下悄悄开出了最美的花朵。小刺猬带着自己的朋友们来听悠悠讲故事。小蝴蝶和小萤火虫们围着她跳舞。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-7.mp3" },
+            { title: "第七章：大家的好朋友", text: "从那以后，悠悠每天晚上都会来到花园。小雏菊为了迎接她，在月光下悄悄开出了最美的花朵。小刺猬带着自己的朋友们来听悠悠讲故事。小蝴蝶和小萤火虫们围着她跳舞。悠悠发现，原来不需要成为最亮的星星，只要把温暖分享给别人，就会成为大家心中最重要的那颗星。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-7.mp3" },
             { title: "第八章：最美的夜空", text: "现在，如果你在一个月光很柔的夜晚仔细看天空，会发现有一颗小小的星星格外温暖。那就是悠悠。她在看着花园里的小雏菊、小刺猬、小蝴蝶和小萤火虫们，微笑着眨眼睛。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-8.mp3" },
             { title: "第九章：故事寓意", text: "每个人都有自己的独特光芒，就像夜空中的每一颗星星。当你愿意把自己温暖的光分享给别人的时候，整个世界都会变得更加明亮。真正重要的不是你看起来有多强大，而是你心中装了多少爱。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-9.mp3" },
             { title: "第十章：晚安", text: "晚安，亲爱的宝贝。", url: "https://zhengcls235-1259174482.cos-website.ap-guangzhou.myqcloud.com/audio/chapter-10.mp3" }
         ];
 
-        let currentIndex = 0;
+        function toggleAutoPlay() {
+            autoPlayEnabled = document.getElementById('autoPlayCheckbox').checked;
+            document.getElementById('autoBadge').textContent = autoPlayEnabled ? '🔄 自动播放已开启' : '⏸️ 自动播放已关闭';
+            document.getElementById('autoBadge').style.background = autoPlayEnabled ? '#4CAF50' : '#666';
+        }
 
         function loadChapter(index) {
             if (index < 0 || index >= chapters.length) return;
@@ -80,6 +104,12 @@
             document.getElementById('text').textContent = ch.text;
             document.getElementById('audioSource').src = ch.url;
             document.getElementById('player').load();
+            
+            // 如果自动播放开启，就播放
+            if (autoPlayEnabled) {
+                document.getElementById('player').play().catch(e => console.log('Auto-play blocked'));
+            }
+            
             document.getElementById('prevBtn').disabled = index === 0;
             document.getElementById('nextBtn').disabled = index === chapters.length - 1;
             document.querySelectorAll('.chapter-btn').forEach((btn, i) => {
@@ -95,6 +125,7 @@
             if (currentIndex < chapters.length - 1) loadChapter(currentIndex + 1);
         }
 
+        // 初始化章节列表
         const list = document.getElementById('chapterList');
         chapters.forEach((ch, i) => {
             const btn = document.createElement('button');
@@ -104,7 +135,20 @@
             list.appendChild(btn);
         });
 
-        loadChapter(0);
+        // 监听音频播放结束，自动播放下一章
+        document.getElementById('player').addEventListener('ended', function() {
+            if (autoPlayEnabled && currentIndex < chapters.length - 1) {
+                // 延迟1秒后自动播放下一章
+                setTimeout(() => {
+                    loadChapter(currentIndex + 1);
+                }, 1000);
+            }
+        });
+
+        // 页面加载时自动播放第一章
+        window.addEventListener('load', function() {
+            loadChapter(0);
+        });
     </script>
 </body>
 </html>
