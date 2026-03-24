@@ -1,0 +1,81 @@
+{
+  "story_title": "小星星悠悠的月光之旅",
+  "total_chapters": 10,
+  "audio_format": "MP3",
+  "voice_type": "女声（温柔、舒缓、适合睡前故事）",
+  "generated_at": "2026-03-24T14:10:00+08:00",
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "chapter_title": "夜空中的小星星",
+      "audio_filename": "chapter-1.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 2,
+      "chapter_title": "出发的勇气",
+      "audio_filename": "chapter-2.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 3,
+      "chapter_title": "云朵上的小精灵",
+      "audio_filename": "chapter-3.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 4,
+      "chapter_title": "穿越星河桥",
+      "audio_filename": "chapter-4.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 5,
+      "chapter_title": "迷路的流星",
+      "audio_filename": "chapter-5.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 6,
+      "chapter_title": "月光花园的入口",
+      "audio_filename": "chapter-6.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 7,
+      "chapter_title": "会唱歌的花朵",
+      "audio_filename": "chapter-7.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 8,
+      "chapter_title": "月光下的约定",
+      "audio_filename": "chapter-8.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 9,
+      "chapter_title": "故事的寓意",
+      "audio_filename": "chapter-9.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    },
+    {
+      "chapter_number": 10,
+      "chapter_title": "结尾的话",
+      "audio_filename": "chapter-10.mp3",
+      "duration_seconds": null,
+      "note": "音频文件已生成"
+    }
+  ],
+  "status": "completed",
+  "audio_directory": "C:\\Users\\Administrator\\.openclaw\\workspace\\star-yoyo-story\\audio\\"
+}
