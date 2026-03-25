@@ -11,13 +11,8 @@
         
         h1 { text-align: center; color: #00d4ff; font-size: 36px; margin-bottom: 20px; text-shadow: 0 0 30px rgba(0,212,255,0.5); }
         
-        .video-wrapper { background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.5); }
-        .video-wrapper video { width: 100%; max-height: 80vh; display: block; }
-        
-        .stats { display: flex; gap: 15px; margin-bottom: 25px; justify-content: center; }
-        .stat-item { background: rgba(0,212,255,0.1); border-radius: 10px; padding: 15px 25px; text-align: center; }
-        .stat-value { color: #00d4ff; font-size: 22px; font-weight: bold; }
-        .stat-label { color: rgba(255,255,255,0.5); font-size: 12px; }
+        .video-box { background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.5); }
+        .video-box video { width: 100%; max-height: 80vh; display: block; }
         
         .news-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 25px; }
         .section-title { color: #00d4ff; font-size: 20px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,212,255,0.2); }
@@ -38,13 +33,8 @@
     <div class="container">
         <h1>每日全球军事动态</h1>
         
-        <div class="video-wrapper">
+        <div class="video-box">
             <video controls><source src="video.mp4" type="video/mp4"></video>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">新闻条数</div></div>
-            <div class="stat-item"><div class="stat-value">60秒</div><div class="stat-label">总时长</div></div>
         </div>
         
         <div class="news-list">
@@ -52,42 +42,42 @@
             
             <div class="news-item">
                 <h3><span class="tag tag-iran">伊朗</span>1. 伊朗革命卫队举行大规模军演</h3>
-                <p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军事演习，展示了新型导弹和无人机装备。此次演习被视为对西方制裁的回应，伊朗军方表示此次演习旨在检验部队战备水平，提升应对地区威胁的能力。</p>
+                <p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军演，展示了新型导弹和无人机装备，检验部队战备水平。演习被视为对西方制裁的回应，地区局势持续紧张。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-iran">伊朗</span>2. 伊朗展示高超音速导弹</h3>
-                <p>伊朗国防部公开展示最新研发的高超音速导弹，声称可突破现有防空系统。这一进展引发西方国家高度关注，美国和以色列情报部门正在评估该导弹的实际作战能力。</p>
+                <p>伊朗国防部公开展示最新研发的高超音速导弹，声称可突破现有防空系统，技术水平达世界前列。引发西方国家高度关注，美以情报部门评估战力。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-israel">以色列</span>3. 以色列继续加沙军事行动</h3>
-                <p>以色列国防军宣布在加沙地带南部城市拉法展开新一轮军事行动，打击哈马斯武装目标。国际社会对此表示担忧，联合国呼吁双方立即停火，避免更多平民伤亡。</p>
+                <p>以色列国防军在加沙南部拉法展开新一轮军事行动，打击哈马斯武装目标，摧毁多处地下隧道。国际社会表示担忧，联合国呼吁双方立即停火。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-yemen">也门</span>4. 胡塞武装封锁红海航道</h3>
-                <p>也门胡塞武装宣布将继续封锁红海航道，针对与以色列有关的商船。多国海军已部署至该区域进行联合护航行动，美国组建的国际联军正在红海执行巡逻任务。</p>
+                <p>也门胡塞武装宣布将继续封锁红海航道，针对与以色列有关的商船，频繁发动袭击。多国海军已部署至该区域进行联合护航行动。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-lebanon">黎巴嫩</span>5. 黎巴嫩真主党边境冲突升级</h3>
-                <p>黎巴嫩真主党武装与以色列军队在边境地区发生激烈交火，双方均有伤亡。联合国维和部队呼吁双方保持克制，防止冲突进一步扩大影响整个中东地区稳定。</p>
+                <p>黎巴嫩真主党与以色列边境冲突骤然升级，双方动用重型武器，激烈交火持续数小时。造成平民伤亡，联合国维和部队呼吁保持克制。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-middleeast">中东</span>6. 美军航母进入波斯湾</h3>
-                <p>美国海军航母战斗群已进入波斯湾水域，五角大楼表示此举是为维护地区稳定和航行自由。此举被伊朗方面视为挑衅，伊朗革命卫队已进入高度戒备状态。</p>
+                <p>美国海军航母战斗群已进入波斯湾水域，五角大楼表示为维护地区稳定和航行自由。伊朗革命卫队进入高度戒备状态，地区紧张局势加剧。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-syria">叙利亚</span>7. 叙利亚政府军收复北部城镇</h3>
-                <p>叙利亚政府军在俄罗斯空军支援下，成功收复伊德利卜省北部重要城镇。反对派武装被迫撤退至更偏远地区，政府军正在清剿残余武装分子。</p>
+                <p>叙利亚政府军在俄罗斯空军支援下发动攻势，成功收复伊德利卜省北部重要城镇。反对派武装被迫撤退至更偏远山区，政府军正在清剿残余武装分子。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-middleeast">中东</span>8. 沙特伊朗关系持续改善</h3>
-                <p>沙特阿拉伯与伊朗外交关系持续回暖，双方同意加强经济合作和地区安全对话。这一趋势为中东地区带来积极信号，有望缓解多年来的地区紧张局势。</p>
+                <p>沙特与伊朗外交关系持续回暖，互动频繁，双方同意加强经济合作，探讨投资领域。地区安全对话机制逐步恢复，为中东局势带来积极信号。</p>
             </div>
         </div>
     </div>
