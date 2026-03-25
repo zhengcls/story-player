@@ -7,25 +7,25 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Microsoft YaHei', Arial, sans-serif; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); min-height: 100vh; color: #fff; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
         h1 { text-align: center; color: #00d4ff; font-size: 36px; margin-bottom: 20px; text-shadow: 0 0 30px rgba(0,212,255,0.5); }
         
         .video-wrapper { background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.5); }
-        .video-wrapper video { width: 100%; max-height: 85vh; display: block; }
+        .video-wrapper video { width: 100%; max-height: 80vh; display: block; }
         
         .stats { display: flex; gap: 15px; margin-bottom: 25px; justify-content: center; }
         .stat-item { background: rgba(0,212,255,0.1); border-radius: 10px; padding: 15px 25px; text-align: center; }
         .stat-value { color: #00d4ff; font-size: 22px; font-weight: bold; }
         .stat-label { color: rgba(255,255,255,0.5); font-size: 12px; }
         
-        .news-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; }
-        .section-title { color: #00d4ff; font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,212,255,0.2); }
-        .news-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 25px; }
+        .section-title { color: #00d4ff; font-size: 20px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,212,255,0.2); }
+        .news-item { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .news-item:last-child { border-bottom: none; }
-        .news-item h3 { color: #fff; font-size: 17px; margin-bottom: 8px; }
-        .news-item p { color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.6; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px; }
+        .news-item h3 { color: #fff; font-size: 22px; margin-bottom: 12px; font-weight: bold; }
+        .news-item p { color: rgba(255,255,255,0.8); font-size: 26px; line-height: 1.8; }
+        .tag { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 14px; margin-right: 10px; font-weight: bold; }
         .tag-iran { background: #e74c3c; }
         .tag-israel { background: #3498db; }
         .tag-lebanon { background: #27ae60; }
@@ -52,42 +52,42 @@
             
             <div class="news-item">
                 <h3><span class="tag tag-iran">伊朗</span>1. 伊朗革命卫队举行大规模军演</h3>
-                <p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军演。</p>
+                <p>伊朗伊斯兰革命卫队今日在霍尔木兹海峡举行大规模军事演习，展示了新型导弹和无人机装备。此次演习被视为对西方制裁的回应，伊朗军方表示此次演习旨在检验部队战备水平，提升应对地区威胁的能力。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-iran">伊朗</span>2. 伊朗展示高超音速导弹</h3>
-                <p>伊朗国防部展示新型高超音速导弹，可突破防空系统。</p>
+                <p>伊朗国防部公开展示最新研发的高超音速导弹，声称可突破现有防空系统。这一进展引发西方国家高度关注，美国和以色列情报部门正在评估该导弹的实际作战能力。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-israel">以色列</span>3. 以色列继续加沙军事行动</h3>
-                <p>以色列国防军在加沙地带展开新一轮军事行动。</p>
+                <p>以色列国防军宣布在加沙地带南部城市拉法展开新一轮军事行动，打击哈马斯武装目标。国际社会对此表示担忧，联合国呼吁双方立即停火，避免更多平民伤亡。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-yemen">也门</span>4. 胡塞武装封锁红海航道</h3>
-                <p>也门胡塞武装宣布继续封锁红海航道。</p>
+                <p>也门胡塞武装宣布将继续封锁红海航道，针对与以色列有关的商船。多国海军已部署至该区域进行联合护航行动，美国组建的国际联军正在红海执行巡逻任务。</p>
             </div>
             
             <div class="news-item">
-                <h3><span class="tag tag-lebanon">黎巴嫩</span>5. 黎巴嫩真主党边境冲突</h3>
-                <p>黎巴嫩真主党与以色列边境冲突升级，双方均有伤亡。</p>
+                <h3><span class="tag tag-lebanon">黎巴嫩</span>5. 黎巴嫩真主党边境冲突升级</h3>
+                <p>黎巴嫩真主党武装与以色列军队在边境地区发生激烈交火，双方均有伤亡。联合国维和部队呼吁双方保持克制，防止冲突进一步扩大影响整个中东地区稳定。</p>
             </div>
             
             <div class="news-item">
                 <h3><span class="tag tag-middleeast">中东</span>6. 美军航母进入波斯湾</h3>
-                <p>美国海军航母战斗群已进入波斯湾水域。</p>
+                <p>美国海军航母战斗群已进入波斯湾水域，五角大楼表示此举是为维护地区稳定和航行自由。此举被伊朗方面视为挑衅，伊朗革命卫队已进入高度戒备状态。</p>
             </div>
             
             <div class="news-item">
-                <h3><span class="tag tag-syria">叙利亚</span>7. 叙利亚政府军收复城镇</h3>
-                <p>叙利亚政府军在俄空军支援下收复北部城镇。</p>
+                <h3><span class="tag tag-syria">叙利亚</span>7. 叙利亚政府军收复北部城镇</h3>
+                <p>叙利亚政府军在俄罗斯空军支援下，成功收复伊德利卜省北部重要城镇。反对派武装被迫撤退至更偏远地区，政府军正在清剿残余武装分子。</p>
             </div>
             
             <div class="news-item">
-                <h3><span class="tag tag-middleeast">中东</span>8. 沙特伊朗关系改善</h3>
-                <p>沙特与伊朗外交关系回暖，加强合作与对话。</p>
+                <h3><span class="tag tag-middleeast">中东</span>8. 沙特伊朗关系持续改善</h3>
+                <p>沙特阿拉伯与伊朗外交关系持续回暖，双方同意加强经济合作和地区安全对话。这一趋势为中东地区带来积极信号，有望缓解多年来的地区紧张局势。</p>
             </div>
         </div>
     </div>
